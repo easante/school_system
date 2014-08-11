@@ -1,0 +1,16 @@
+= bootstrap_form_for(@school_year, :html => {:class => "form-horizontal"}) do |f|
+  .form-group
+    %label.control-label.col-sm-3 Title
+    .col-sm-9
+      = f.text_field :title, class: 'form-control', hide_label: true
+  .form-group
+    %label.control-label.col-sm-3 Start date
+    .col-sm-9
+      = f.date_field :start_date, class: 'form-control', hide_label: true
+  .form-group
+    %label.control-label.col-sm-3 End date
+    .col-sm-9
+      = f.date_field :end_date, class: 'form-control', hide_label: true
+  .form-group.actions.control-group
+    .col-sm-offset-3
+      = f.submit class: 'btn btn-primary'
