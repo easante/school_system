@@ -11,14 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811051221) do
+ActiveRecord::Schema.define(version: 20140813154525) do
+
+  create_table "school_terms", force: true do |t|
+    t.string   "title",          limit: 30
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "school_year_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "school_terms", ["school_year_id"], name: "index_school_terms_on_school_year_id"
 
   create_table "school_years", force: true do |t|
-    t.string   "title",      limit: 30
+    t.string   "title",       limit: 30
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active_year",            default: false
   end
 
 end

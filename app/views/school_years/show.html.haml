@@ -1,0 +1,24 @@
+
+- if @school_year
+  %h3 School Year #{@school_year.title}
+
+  = link_to "#{@school_year.title}", edit_school_year_path(@school_year)
+
+  %table.table
+    %tr
+      %td Start day
+      %td #{@school_year.start_date}
+    %tr
+      %td End day
+      %td #{@school_year.end_date}
+
+  = link_to "All school years", school_years_path
+
+- content_for(:sidebar) do
+  Actions
+  %hr.sidebar-hr
+  %ul.sidebar-link
+    %li
+      = link_to "Delete School Year", school_year_path(@school_year), method: :delete,
+        data: { confirm: 'Are you sure you want to delete the school year?'}
+  %hr.sidebar-hr

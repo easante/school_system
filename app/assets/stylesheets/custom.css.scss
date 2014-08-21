@@ -1,7 +1,6 @@
 /*
 body {
-  padding-left: 10%;
-  padding-right: 10%;
+  font-family: helvetica sans-serif;
 }
 */
 
@@ -54,4 +53,35 @@ main {
     background-color:#9B58B5;
     color:#ffffff;
     border-radius:0;
+}
+
+.sidebar-link {
+  list-style-type: none;
+  padding-left: 10px;
+  margin-top: 0px;
+}
+
+.sidebar-link li {
+  padding-bottom: 10px;
+}
+
+.sidebar-hr {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.sidebar-header {
+  margin-left: 10px;
+}
+
+.table-header-line {
+  background-color:#485454;
+  color: white;
+}
+
+h2.page-headers {
+  font-style: italic;
+  font-size: 170%;
+  color: #485454;
+  text-align: center;
 }

@@ -1,0 +1,28 @@
+- if @school_years
+  %h3 School Years
+
+  %table.table
+    %tr.table-header-line
+      %th Title
+      %th Start Date
+      %th End Date
+      %th Active
+    - @school_years.each do |year|
+      %tr
+        %td
+          = link_to year.title, edit_school_year_path(year)
+        %td #{year.start_date}
+        %td #{year.end_date}
+        %td %checkbox
+
+  =# link_to "All school years", school_years_path
+
+- content_for(:sidebar) do
+  %h3.sidebar-header Actions
+  %hr.sidebar-hr
+  %ul.sidebar-link
+    %li.sidebar-list-item
+      = link_to "Add School Year", new_school_year_path
+    %li.sidebar-list-item
+      = link_to "Activate New Year", "#"
+  %hr.sidebar-hr

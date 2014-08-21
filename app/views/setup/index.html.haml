@@ -1,7 +1,34 @@
 - content_for(:sidebar) do
-  %ul
+  %h3.sidebar-header Actions
+  %hr.sidebar-hr
+  %ul.sidebar-link
     %li
       = link_to "New School Year", new_school_year_path
+    %li
+      = link_to "New School Term", new_school_year_school_term_path(@school_year) if @school_year
 
+%h3.titles School Years
 
-%p Main Page Stuff
+- if @school_year.nil?
+  %p There are no school years created.
+  %p
+    = link_to "Please create a school year", new_school_year_path
+    to continue.
+- else
+  %table.table
+    %tr
+      %th Title
+      %th Start Date
+      %th End Date
+      %th Active
+    - @school_years.each do |year|
+      %tr
+        %td
+          = link_to year.title, edit_school_year_path(year)
+        %td #{year.start_date}
+        %td #{year.end_date}
+        %td
+          - if year.active_year
+            = radio_button_tag :active_year, year.active_year, checked: year.active_year
+          - else
+            = radio_button_tag :active_year, year.active_year
